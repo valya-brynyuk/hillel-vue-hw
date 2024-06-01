@@ -1,11 +1,8 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">{{ title }}</h4>
-      <p class="card-text">
-        <slot/>
-      </p>
-      <button type="button" class="btn btn-primary">{{ buttonText }}</button>
+      <h4 v-if="title?.length" class="card-title">{{ title }}</h4>
+      <p v-if="text?.length" class="card-text">{{ text }}</p>
     </div>
   </div>
 </template>
@@ -15,11 +12,9 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
     },
-    buttonText: {
+    text: {
       type: String,
-      required: true,
     }
   },
 
