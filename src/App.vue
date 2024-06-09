@@ -1,15 +1,22 @@
 <template>
-  <Card title="hi"/>
-  <Card text="how are you?"/>
-  <Card title="hi" text="how are you?"/>
+  <Definitions :data="definitions"/>
 </template>
 
 <script>
-import Card from "./components/Card.vue";
+import Definitions from "./components/Definitions.vue";
+
 export default {
   name: "App",
+  data() {
+    return {
+      definitions: [
+        {dt: 'one', dd: 'two', id: 1},
+        {dt: 'another term', dd: 'another description', id: 2},
+      ]
+    };
+  },
   components: {
-    Card
+    Definitions
   }
 }
 
