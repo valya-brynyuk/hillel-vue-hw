@@ -1,15 +1,19 @@
 <template>
-  <Alert type="warning" text="what is love?"/>
+  <ListGroup>
+    <p>one</p>
+    <p>two</p>
+  </ListGroup>
 </template>
 
 <script>
 
-import Alert from "./components/Alert.vue";
+
+import ListGroup from "./components/ListGroup.vue";
 
 export default {
   name: "App",
   components: {
-    Alert
+    ListGroup
   }
 }
 
