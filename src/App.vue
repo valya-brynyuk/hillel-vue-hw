@@ -1,19 +1,16 @@
 <template>
-  <ListGroup>
-    <p>one</p>
-    <p>two</p>
-  </ListGroup>
+  <BtnGroup/>
 </template>
 
 <script>
 
 
-import ListGroup from "./components/ListGroup.vue";
+import BtnGroup from "./components/BtnGroup.vue";
 
 export default {
   name: "App",
   components: {
-    ListGroup
+    BtnGroup
   }
 }
 
