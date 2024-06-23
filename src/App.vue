@@ -1,24 +1,23 @@
 <template>
-  <Carousel :images="images"/>
+  <Collapse :text="text" :opened="opened"/>
 </template>
 
 <script>
 
-import Carousel from "./components/Carousel.vue";
+
+import Collapse from "./components/Collapse.vue";
 
 export default {
   name: "App",
   data() {
     return {
-      images: [
-        '/image1.jpg',
-        '/image2.jpg',
-        '/image3.jpg',
-      ]
+      text: 'Це прихований текст',
+      opened: true
     }
   },
   components: {
-    Carousel
+    Collapse
+
   }
 }
 
