@@ -23,7 +23,8 @@ export default {
     },
     opened: {
       type: Boolean,
-      required: true
+      required: false,
+      default: true,
     }
   },
   methods: {
