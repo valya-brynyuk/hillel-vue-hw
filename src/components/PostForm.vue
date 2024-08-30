@@ -1,6 +1,6 @@
 <template>
   <el-form :model="form">
-    <h2 class="text-large font-600 mr-3"> Create Todo Item </h2>
+    <h2 class="text-large font-600 mr-3"> Create Post </h2>
     <el-form-item>
       <el-input v-model.trim="form.title" placeholder="Title" size="large"/>
       <error-message :text="errors.title" />
@@ -12,13 +12,10 @@
     </el-form-item>
 
     <el-form-item>
-      <el-switch
-          v-model="form.status"
-          size="large"
-          active-text="Done"
-          inactive-text="Not Done"
-      />
+      <el-input v-model.trim="form.author" placeholder="Author" size="large"/>
+      <error-message :text="errors.author" />
     </el-form-item>
+
     <el-button @click.stop="handleSubmit" type="primary">Save</el-button>
   </el-form>
 </template>
@@ -31,10 +28,11 @@ import {string, object} from "yup";
 const validationSchema = object().shape({
   title: string().required(),
   description: string().required(),
+  author: string().required(),
 });
 
 export default {
-  name: 'TodoForm',
+  name: 'PostForm',
   components: {
     ElForm, ElFormItem, ElInput, ErrorMessage, ElSwitch
   },
@@ -49,12 +47,13 @@ export default {
       return Object.keys(this.errors).length < 1;
     }
   },
+  emits: ['submit',],
   methods: {
     getDefaultFormValue() {
       return {
         title: '',
         description: '',
-        status: false,
+        author: '',
       };
     },
     resetForm() {
@@ -88,7 +87,9 @@ export default {
         return;
       }
 
-      this.$emit('setTodoItems', {...this.form});
+      this.$emit('submit', {
+        ...this.form
+      });
       this.resetForm();
     }
   },

@@ -11,7 +11,8 @@ class LStorage {
 
     const item = {
       ...todoItem,
-      id: Date.now()
+      id: Date.now(),
+      created_at: new Date().toISOString(),
     };
 
     data.push(item)
@@ -20,6 +21,12 @@ class LStorage {
 
     return item;
   };
+
+  getItem(id) {
+    return this.getItems().find(item => {
+      return item.id === id
+    });
+  }
 
   removeItem(id) {
     const data = this.getItems().filter(item => {
